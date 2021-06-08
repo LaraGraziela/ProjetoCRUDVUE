@@ -6,11 +6,12 @@
 
     <label for="senha">Senha:</label><br />
     <input v-model="senha" type="password" /> <br /><br />
-    <button @click="login" target="_blank">ENTRAR</button>
+    <button @click="login">ENTRAR</button>
   </div>
 </template>
 
 <script>
+import router from "../router";
 export default {
   data: () => ({
     email: "",
@@ -19,8 +20,7 @@ export default {
   methods: {
     login() {
       if (this.email == "lara" && this.senha == "123") {
-        let route = this.$router.resolve({ path: "../views/Perfil.vue" });
-        window.open(route.href, "_blank");
+        router.push("/perfil");
       } else {
         console.log("erro");
       }
